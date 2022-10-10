@@ -11,6 +11,8 @@ export function objToNode(objNode, insideSvg, options) {
         } else if (objNode.nodeName.toLowerCase() === 'svg') {
             node = options.document.createElementNS('http://www.w3.org/2000/svg', 'svg')
             insideSvg = true
+        } else if (options.caseSensitive) {
+            node = options.document.createElementNS(null, objNode.nodeName)
         } else {
             node = options.document.createElement(objNode.nodeName)
         }
