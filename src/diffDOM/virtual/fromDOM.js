@@ -1,6 +1,6 @@
 export function nodeToObj(aNode, options = {}) {
     const objNode = {}
-    objNode.nodeName = aNode.nodeName
+    objNode.nodeName = options.caseSensitive ? aNode.nodeName : aNode.nodeName.toLowerCase();
     if (objNode.nodeName === '#text' || objNode.nodeName === '#comment') {
         objNode.data = aNode.data
     } else {
